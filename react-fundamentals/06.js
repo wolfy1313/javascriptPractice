@@ -124,6 +124,9 @@
 
 // export default App
 
+
+// EXTRA CREDIT 6.3
+
 // Basic Forms
 // http://localhost:3000/isolated/exercise/06.js
 
@@ -137,13 +140,12 @@ function UsernameForm({onSubmitUsername}) {
 
   const handleChange = event => {
     const {value} = event.target
-    event.target.value = value.toLowerCase()
-    // setError(isLowerCase ? null : 'username must be lower case pls thx')
+    setUsername(value.toLowerCase())
   }
 
   const handleSubmit = event => {
     event.preventDefault()
-    onSubmitUsername(userInput.current.value)
+    onSubmitUsername(username)
   }
 
   return (
