@@ -46,11 +46,52 @@
 // Basic Forms
 // http://localhost:3000/isolated/exercise/06.js
 
+// import * as React from 'react'
+// import {useRef} from 'react'
+
+// function UsernameForm({onSubmitUsername}) {
+//   const userInput = useRef('')
+
+//   const handleSubmit = event => {
+//     event.preventDefault()
+//     onSubmitUsername(userInput.current.value)
+//   }
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <div>
+//         <label htmlFor="usernameInput">Username:</label>
+//         <input ref={userInput} id="usernameInput" type="text" />
+//       </div>
+//       <button type="submit">Submit</button>
+//     </form>
+//   )
+// }
+
+// function App() {
+//   const onSubmitUsername = username => alert(`You entered: ${username}`)
+//   return <UsernameForm onSubmitUsername={onSubmitUsername} />
+// }
+
+// export default App
+
+// EXTRA 5.2
+
+// Basic Forms
+// http://localhost:3000/isolated/exercise/06.js
+
 import * as React from 'react'
-import {useRef} from 'react'
+import {useRef, useState} from 'react'
 
 function UsernameForm({onSubmitUsername}) {
   const userInput = useRef('')
+  const [error, setError] = useState(null)
+
+  const handleChange = event => {
+    const {value} = event.target
+    const isLowerCase = value === value.toLowerCase()
+    setError(isLowerCase ? null : 'username must be lower case pls thx')
+  }
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -61,9 +102,17 @@ function UsernameForm({onSubmitUsername}) {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="usernameInput">Username:</label>
-        <input ref={userInput} id="usernameInput" type="text" />
+        <input
+          ref={userInput}
+          id="usernameInput"
+          type="text"
+          onChange={handleChange}
+        />
       </div>
-      <button type="submit">Submit</button>
+      <div style={{color: 'red'}}>{error}</div>
+      <button disabled={error} type="submit">
+        Submit
+      </button>
     </form>
   )
 }
