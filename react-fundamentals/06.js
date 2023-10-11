@@ -75,7 +75,7 @@
 
 // export default App
 
-// EXTRA 5.2
+// EXTRA 6.2
 
 // Basic Forms
 // http://localhost:3000/isolated/exercise/06.js
