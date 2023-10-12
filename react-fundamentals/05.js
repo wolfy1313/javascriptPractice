@@ -21,13 +21,22 @@ const largeBox = <div>large orange box</div>
 function App() {
   return (
     <div>
-      <div style={{backgroundColor: 'lightblue'}} className="box; box--small">
+      <div
+        style={{backgroundColor: 'lightblue', fontStyle: 'italic'}}
+        className="box; box--small"
+      >
         {smallBox}
       </div>
-      <div style={{backgroundColor: 'pink'}} className="box; box--medium">
+      <div
+        style={{backgroundColor: 'pink', fontStyle: 'italic'}}
+        className="box; box--medium"
+      >
         {mediumBox}
       </div>
-      <div style={{backgroundColor: 'orange'}} className="box; box--large">
+      <div
+        style={{backgroundColor: 'orange', fontStyle: 'italic'}}
+        className="box; box--large"
+      >
         {largeBox}
       </div>
     </div>
