@@ -31,7 +31,7 @@ EXTRA Credit 1
 <!-- Creating custom components -->
 <!-- http://localhost:3000/isolated/exercise/04.html -->
 
-<body>
+<!-- <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
@@ -52,6 +52,32 @@ EXTRA Credit 1
     )
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
+    ReactDOM.createRoot(document.getElementById('root')).render(element)
+  </script>
+</body> -->
+
+EGGSTRA Credit 2
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script type="text/babel">
+   
+    function Message({children}){
+      return <div className="message">{children}</div>
+    }
+
+    const helloElement = React.createElement(Message,{children: "Hello World"})
+    const goodbyeElement = React.createElement(Message, {children: "ByeBYE"})
+    const element = (
+      <div className="container">
+       <Message>Hello World</Message>
+       <Message>Goodbye World</Message>
+      </div>
+    )
+
     ReactDOM.createRoot(document.getElementById('root')).render(element)
   </script>
 </body>
