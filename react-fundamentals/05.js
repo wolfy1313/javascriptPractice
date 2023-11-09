@@ -109,8 +109,8 @@
 // Styling
 // http://localhost:3000/isolated/exercise/05.js
 
-import * as React from 'react'
-import '../box-styles.css'
+// import * as React from 'react'
+// import '../box-styles.css'
 
 // 🐨 add a className prop to each div and apply the correct class names
 // based on the text content
@@ -122,40 +122,79 @@ import '../box-styles.css'
 // 🐨 also use the style prop to make the font italic
 // 💰 Here are available style attributes: backgroundColor, fontStyle
 
-function Box({size, style, ...otherProps}) {
+// function Box({size, style, ...otherProps}) {
+//   return (
+//     <div
+//       className={`box box--${size}`}
+//       style={{fontStyle: 'italic', ...style}}
+//       {...otherProps}
+//     ></div>
+//   )
+// }
+// const smallBox = (
+//   <Box size="small" style={{backgroundColor: 'lightblue'}}>
+//     small lightblue box
+//   </Box>
+// )
+// const mediumBox = (
+//   <Box size="medium" style={{backgroundColor: 'pink'}}>
+//     medium pink box
+//   </Box>
+// )
+// const largeBox = (
+//   <Box size="large" style={{backgroundColor: 'orange'}}>
+//     large orange box
+//   </Box>
+// )
+
+// function App() {
+//   return (
+//     <div>
+//       <div>
+//         {smallBox}
+//         {mediumBox}
+//         {largeBox}
+//         <Box>sizeless box</Box>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// EXTRA Credit 5.2 optional answer 
+
+// Styling
+// 💯 accept a size prop to encapsulate styling
+// http://localhost:3000/isolated/final/05.extra-2.js
+
+import * as React from 'react'
+import '../box-styles.css'
+
+function Box({style, size, ...otherProps}) {
+  const sizeClassName = size ? `box--${size}` : ''
   return (
     <div
-      className={`box box--${size}`}
+      className={`box ${sizeClassName}`}
       style={{fontStyle: 'italic', ...style}}
       {...otherProps}
-    ></div>
+    />
   )
 }
-const smallBox = (
-  <Box size="small" style={{backgroundColor: 'lightblue'}}>
-    small lightblue box
-  </Box>
-)
-const mediumBox = (
-  <Box size="medium" style={{backgroundColor: 'pink'}}>
-    medium pink box
-  </Box>
-)
-const largeBox = (
-  <Box size="large" style={{backgroundColor: 'orange'}}>
-    large orange box
-  </Box>
-)
 
 function App() {
   return (
     <div>
-      <div>
-        {smallBox}
-        {mediumBox}
-        {largeBox}
-        <Box>sizeless box</Box>
-      </div>
+      <Box size="small" style={{backgroundColor: 'lightblue'}}>
+        small lightblue box
+      </Box>
+      <Box size="medium" style={{backgroundColor: 'pink'}}>
+        medium pink box
+      </Box>
+      <Box size="large" style={{backgroundColor: 'orange'}}>
+        large orange box
+      </Box>
+      <Box>sizeless box</Box>
     </div>
   )
 }
